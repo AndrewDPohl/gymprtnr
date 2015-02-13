@@ -56,3 +56,7 @@ float: left;
   width: 35px;
   margin-bottom: 15px;
 }
+
+.carousel-inner img {
+  margin: auto;
+}

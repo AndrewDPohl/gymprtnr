@@ -19,19 +19,59 @@
   </div>
 </nav>
 
+<center><h1 class="login_main">GYMPRTNR</h1></center>
+
+<div id="carousel-gymprtnr" class="carousel slide" data-ride="carousel">
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="http://i.imgur.com/TAVrY4t.jpg?1">
+    </div>
+    <div class="item">
+      <img src="http://i.imgur.com/xGcFfNk.jpg?1">
+    </div>
+    <div class="item">
+      <img src="http://i.imgur.com/CijHMx9.jpg">
+    </div>
+    <div class="item">
+      <img src="http://i.imgur.com/MEDRmmi.jpg?1">
+    </div>
+    <div class="item">
+      <img src="http://i.imgur.com/wSID9k7.jpg?1">
+    </div>
+  </div>
+ 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
 <%= yield %>
 <div class="navbar navbar-fixed-bottom">
   <div class="container">
     <div class="row">
       <h4 class="footer_note">ANDREW POHL ©</h4>
-      <img class="footer_token" src="http://fc00.deviantart.net/fs71/f/2012/326/5/8/facebook_icon_black_by_royal_exo-d5ls3b5.png">
-      <img class="footer_token" src="http://icons.iconarchive.com/icons/graphics-vibe/neon-glow-social/256/twitter-icon.png">
-      <img class="footer_token" src="http://app.everlightcms.com/assets/294/images/instagram-white.png">
-      <img class="footer_token" src="http://static.iconsplace.com/icons/preview/white/github-256.png">
-      <img class="footer_token" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-inlay-steel-squares-icons-social-media-logos/097909-black-inlay-steel-square-icon-social-media-logos-linkedin-logo.png">
-      <img class="footer_token" src="http://i.imgur.com/mowGlPgs.jpg">
+      <a href="https://generalassemb.ly"><img class="footer_token" src="https://generalassemb.ly/online/assets/ga-lockup-logo-9d95d5d0a1c966540edaedcb440b1963.png"></a>
+      <a href="https://www.facebook.com/andypohlarbear"><img class="footer_token" src="http://fc00.deviantart.net/fs71/f/2012/326/5/8/facebook_icon_black_by_royal_exo-d5ls3b5.png"></a>
+      <a href="https://twitter.com/selltheheart"><img class="footer_token" src="http://icons.iconarchive.com/icons/graphics-vibe/neon-glow-social/256/twitter-icon.png"></a>
+      <a href="http://instagram.com/selltheheart"><img class="footer_token" src="http://app.everlightcms.com/assets/294/images/instagram-white.png"></a>
+      <a href="https://github.com/AndrewDPohl"><img class="footer_token" src="http://static.iconsplace.com/icons/preview/white/github-256.png"></a>
+      <a href="https://www.linkedin.com/in/andrewdpohl"><img class="footer_token" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-inlay-steel-squares-icons-social-media-logos/097909-black-inlay-steel-square-icon-social-media-logos-linkedin-logo.png"></a>
+      <a href="https://selltheheartrecords.storenvy.com"><img class="footer_token" src="http://i.imgur.com/mowGlPgs.jpg"></a>
     </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+    $('.carousel').carousel({
+        interval: 3000
+    })
+</script>
 </body>
 </html>
