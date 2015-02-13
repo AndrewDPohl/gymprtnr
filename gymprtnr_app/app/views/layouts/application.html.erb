@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GymprtnrApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat+Subrayada' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <a class="navbar-brand logo" href="/">GYMPRTNR</a>
+      <li class="active"><a href="#">Sign Up</a></li>
+      <li class="active"><a href="#">About</a></li>
+      <li class="active"><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<%= yield %>
+<div class="navbar navbar-fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <h4 class="footer_note">ANDREW POHL ©</h4>
+      <img class="footer_token" src="http://fc00.deviantart.net/fs71/f/2012/326/5/8/facebook_icon_black_by_royal_exo-d5ls3b5.png">
+      <img class="footer_token" src="http://icons.iconarchive.com/icons/graphics-vibe/neon-glow-social/256/twitter-icon.png">
+      <img class="footer_token" src="http://app.everlightcms.com/assets/294/images/instagram-white.png">
+      <img class="footer_token" src="http://static.iconsplace.com/icons/preview/white/github-256.png">
+      <img class="footer_token" src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-inlay-steel-squares-icons-social-media-logos/097909-black-inlay-steel-square-icon-social-media-logos-linkedin-logo.png">
+      <img class="footer_token" src="http://i.imgur.com/mowGlPgs.jpg">
+    </div>
+  </div>
+</div>
+</body>
+</html>

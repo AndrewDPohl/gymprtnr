@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require twitter/bootstrap
+ */
+  
+.logo {
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.login {
+text-align: center;
+}
+
+.login_main {
+  font-size: 48px;
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.navbar {
+border-radius: 0 !important;
+}
+
+.box {
+border: 2px solid black;
+}
+
+li {
+float: left;
+}
+
+.navbar-fixed-bottom {
+  height: 50px;
+  background-color: black;
+  position: relative;
+}
+
+.footer_note {
+  float: right;
+}
+
+.footer_token  {
+  float:left;
+  height: 35px;
+  width: 35px;
+  margin-bottom: 15px;
+}
