@@ -34,6 +34,7 @@ border-radius: 0 !important;
 
 .box {
 border: 2px solid black;
+margin-top: 5px;
 }
 
 li {
@@ -59,4 +60,11 @@ float: left;
 
 .carousel-inner img {
   margin: auto;
+}
+
+.greeting {
+  color: white;
+  font-family: 'Montserrat Subrayada', sans-serif;
+  margin-bottom: 5px;
+  float: center;
 }
