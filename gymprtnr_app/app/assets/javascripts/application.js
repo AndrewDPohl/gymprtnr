@@ -20,15 +20,19 @@
     "ngRoute"
     ]);
 
-  GymPrtnrApp.config(["$routeProvider", "$locationProvider", function (){
+  GymPrtnrApp.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider){
     $routeProvider.
-      when("users/create", {
-        templateUrl: "views/layouts/application.html",
+      when("/", {
+        templateUrl: "layouts/application.html",
+        controller: "GymPrtnrsCtrl"
+      })
+      when("/update", {
+        templateUrl: "layouts/application.html",
         controller: "GymPrtnrsCtrl"
       });
   }]);
 
-  GymPrtnrApp.controller("GymPrtnrsCtrl", ["$scope", "Users", function ($scope, Users){
+  GymPrtnrApp.controller("GymPrtnrsCtrl", ["$scope", "Users", "ngRoute", function ($scope, Users, ngRoute){
     $scope.users =[];
 
     $scope.updateUser = function() {
