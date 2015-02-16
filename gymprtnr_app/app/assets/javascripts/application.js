@@ -14,5 +14,36 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require angular
-//= require angular-resource
+(function(){
+
+  var GymPrtnrApp = angular.module("GymPrtnrApp", [
+    "ngRoute"
+    ]);
+
+  GymPrtnrApp.config(["$routeProvider", "$locationProvider", function (){
+    $routeProvider.
+      when("users/create", {
+        templateUrl: "views/layouts/application.html",
+        controller: "GymPrtnrsCtrl"
+      });
+  }]);
+
+  GymPrtnrApp.controller("GymPrtnrsCtrl", ["$scope", "Users", function ($scope, Users){
+    $scope.users =[];
+
+    $scope.updateUser = function() {
+      var user = $scope.newUser;
+      var that = this;
+      Users.update(user).
+      error(function () {
+        $scope.formError = true;
+      }).
+      success(function (data) {
+        $scope.User = {};
+      });
+    };
+
+
+  }]);
+
+})();

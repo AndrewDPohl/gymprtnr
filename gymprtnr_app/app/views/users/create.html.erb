@@ -1,2 +1,13 @@
-<h1>Users#create</h1>
-<p>Find me in app/views/users/create.html.erb</p>
+<div class="well row">
+  <div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
+    <form ng-submit="updateUser()">
+      <h1 class="main_title">Complete Your Profile</h1>
+      <input class="form-control" id="contact_info" type="text" ng-model="newUser.name" placeholder="Age"></h3><br>
+      <input class="form-control" id="contact_info" type="text" ng-model="newUser.cell" placeholder="Cell Number"></h3><br>
+      <input class="form-control" id="contact_info" type="text" ng-model="newUser.home" placeholder="City"></h3><br>
+      <input class="form-control" id="contact_info" type="text" ng-model="newUser.address" placeholder="Zipcode"></h3><br>
+      <textarea class="form-control" id="contact_info" type="text" ng-model="newUser.bio" placeholder="Bio"></textarea>
+      <button class="btn btn-default" id="button" type="submit">Complete Profile</button>
+    </form>
+  </div>
+</div>

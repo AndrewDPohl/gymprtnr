@@ -4,6 +4,14 @@ class SitesController < ApplicationController
     render :sign_in
   end
 
+  def about
+    render :about
+  end
+
+  def contact
+    render :contact
+  end
+
 
 
 end

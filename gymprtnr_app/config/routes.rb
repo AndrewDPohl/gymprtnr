@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'users#index'
 
+  get 'update', to: "users#create" 
+
   # get '/logout', to: 'sessions#destroy'
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
