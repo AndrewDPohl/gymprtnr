@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require angular
+//= require angular-route
 //= require turbolinks
 //= require_tree .
 (function(){
@@ -20,30 +23,59 @@
     "ngRoute"
     ]);
 
+  GymPrtnrApp.config(["$httpProvider", function ($httpProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+  }]);
+
   GymPrtnrApp.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider){
     $routeProvider.
       when("/", {
-        templateUrl: "layouts/application.html",
+        templateUrl: "sites/index.html",
         controller: "GymPrtnrsCtrl"
-      })
+      }).
       when("/update", {
-        templateUrl: "layouts/application.html",
+        templateUrl: "sites/update.html",
+        controller: "GymPrtnrsCtrl"
+      }).
+      when ("/about", {
+        templateUrl: "sites/about.html",
+        controller: "GymPrtnrsCtrl"
+      }).
+      when ("/contact", {
+        templateUrl: "sites/contact.html",
         controller: "GymPrtnrsCtrl"
       });
   }]);
 
-  GymPrtnrApp.controller("GymPrtnrsCtrl", ["$scope", "Users", "ngRoute", function ($scope, Users, ngRoute){
-    $scope.users =[];
 
+
+  GymPrtnrApp.factory("CurrentUser", ["$http", function ($http) {
+    return {
+      info: function () {
+        return $http.get("user_info");
+      },
+      update: function (user) {
+        return $http.patch("users.json", {user: user});
+      }
+    }
+  }])
+
+  GymPrtnrApp.controller("GymPrtnrsCtrl", ["$scope", "CurrentUser", "$location", function ($scope, CurrentUser, $location){
+
+
+    $scope.users =[];
+    CurrentUser.info()
+      .success(function(user) {
+        $scope.user = user;
+      });
     $scope.updateUser = function() {
-      var user = $scope.newUser;
-      var that = this;
-      Users.update(user).
+     var user = $scope.user;
+     CurrentUser.update(user).
       error(function () {
         $scope.formError = true;
       }).
       success(function (data) {
-        $scope.User = {};
+        $location.path("/")
       });
     };
 

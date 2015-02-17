@@ -11,4 +11,8 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def user_info
+    render json: current_user, only: [:id, :name, :age, :phone_number, :city, :zipcode, :bio]
+  end 
+
 end

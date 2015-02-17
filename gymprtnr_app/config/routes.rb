@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :users
 
   root to: 'users#index'
 
-  get 'update', to: "users#index" 
-
-  # get '/logout', to: 'sessions#destroy'
+  get "users", to: "users#index"
+  patch "users", to: "users#update"
+  get "user_info", to: "sessions#user_info"
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

@@ -1,0 +1,14 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active logo"><a href="#about">About</a></li>
+      <li class="active logo"><a href="#contact">Contact</a></li>
+    <% unless current_user %>
+    <% else %>
+      <li class="active logo"><a href="#update">Update Profile</a></li>
+      <li class="active logo"><a href="/logout">Log Out</a></li>
+    </ul>
+      <h4 class="greeting">Hello, <%= current_user.name %></h4>
+    <% end %>
+  </div>
+</nav>

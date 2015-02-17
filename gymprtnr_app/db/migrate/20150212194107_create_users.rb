@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :oauth_expires_at
       t.integer :age
       t.string :city
-      t.integer :zipcode
+      t.string :zipcode
       t.text :bio
       t.string :phone_number
 
