@@ -45,19 +45,19 @@
         templateUrl: "sites/contact.html",
         controller: "GymPrtnrsCtrl"
       }).
-      when ("/search", {
+      when ("/sports", {
         templateUrl: "sites/search.html",
         controller: "SportsCtrl"
       });
   }]);
 
- GymPrtnrApp.factory("Sports", ["$http", function ($http) {
-    return {
-      info: function () {
-        return $http.get("sports");
-      }
-    }
-  }]);
+ // GymPrtnrApp.factory("Sport", ["$http", function ($http) {
+ //    return {
+ //      info: function () {
+ //        return $http.get("http://localhost:3000/sports.json");
+ //      }
+ //    }
+ //  }]);
 
   GymPrtnrApp.factory("CurrentUser", ["$http", function ($http) {
     return {
@@ -91,14 +91,18 @@
   }]);
 
 
-  GymPrtnrApp.controller("SportsCtrl", ["$scope", "$http", "Sports", "$location", function ($scope, $http, Sports, $location) {
-    // $scope.sports = Sports.query();
-    $scope.sports = [];
+  GymPrtnrApp.controller("SportsCtrl", function ($scope, $http) {
+    $http.get('http://localhost:3000/sports.json').then(function(resp) {
+      console.log('Success', resp);
+      $scope.sports = resp.data
+    })
+    // $scope.sports = Sport.query();
+    // $scope.sports = [];
     // console.log(sports);
-    Sports.info()
-    .success(function(sport) {
-      console.log(sport);
-    });
-  }]);
+    // Sports.info()
+    // .success(function(sport) {
+    //   console.log(sport);
+    // });
+  });
 
 })();

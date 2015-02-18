@@ -15,4 +15,5 @@ class SessionsController < ApplicationController
     render json: current_user, only: [:id, :name, :age, :phone_number, :city, :zipcode, :bio, :facebook_image]
   end 
 
+
 end
