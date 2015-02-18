@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212194149) do
+ActiveRecord::Schema.define(version: 20150217231415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,23 @@ ActiveRecord::Schema.define(version: 20150212194149) do
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
-    t.string   "oauth_token_expires_at"
+    t.datetime "oauth_expires_at"
     t.integer  "age"
     t.string   "city"
-    t.integer  "zipcode"
+    t.string   "zipcode"
     t.text     "bio"
     t.string   "phone_number"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "facebook_image"
+  end
+
+  create_table "users_sports", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "sport_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

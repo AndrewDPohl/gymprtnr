@@ -5,3 +5,25 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+sports = Sport.create([
+  { name: 'Basketball'},
+  { name: 'Baseball'},
+  { name: 'Weight Training'},
+  { name: 'Yoga'},
+  { name: 'Running'},
+  { name: 'Jogging'},
+  { name: 'Golf'},
+  { name: 'Crossfit'},
+  { name: 'Swimming'},
+  { name: 'Martial Arts'},
+  { name: 'Hacky Sack'},
+  { name: 'Frisbee Golf'},
+  { name: 'Hiking'},
+  { name: 'Biking'},
+  { name: 'Snowboarding/Skiing'},
+  { name: 'Surfing'},
+  { name: 'Bodybuilding'},
+  { name: 'Skateboarding'},
+  { name: 'Parkour'},
+  { name: 'Bowling'}
+  ])

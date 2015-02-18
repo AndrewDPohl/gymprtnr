@@ -29,7 +29,7 @@
 
   GymPrtnrApp.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider){
     $routeProvider.
-      when("/", {
+      when("/index", {
         templateUrl: "sites/index.html",
         controller: "GymPrtnrsCtrl"
       }).
@@ -44,10 +44,20 @@
       when ("/contact", {
         templateUrl: "sites/contact.html",
         controller: "GymPrtnrsCtrl"
+      }).
+      when ("/search", {
+        templateUrl: "sites/search.html",
+        controller: "SportsCtrl"
       });
   }]);
 
-
+ GymPrtnrApp.factory("Sports", ["$http", function ($http) {
+    return {
+      info: function () {
+        return $http.get("sports");
+      }
+    }
+  }]);
 
   GymPrtnrApp.factory("CurrentUser", ["$http", function ($http) {
     return {
@@ -58,7 +68,7 @@
         return $http.patch("users.json", {user: user});
       }
     }
-  }])
+  }]);
 
   GymPrtnrApp.controller("GymPrtnrsCtrl", ["$scope", "CurrentUser", "$location", function ($scope, CurrentUser, $location){
 
@@ -78,8 +88,17 @@
         $location.path("/")
       });
     };
+  }]);
 
 
+  GymPrtnrApp.controller("SportsCtrl", ["$scope", "$http", "Sports", "$location", function ($scope, $http, Sports, $location) {
+    // $scope.sports = Sports.query();
+    $scope.sports = [];
+    // console.log(sports);
+    Sports.info()
+    .success(function(sport) {
+      console.log(sport);
+    });
   }]);
 
 })();

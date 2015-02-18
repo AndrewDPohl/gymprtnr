@@ -1,14 +1,17 @@
 <nav class="navbar navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
+    <% unless current_user %>
+      <h3 class="logo">GYMPRTNR</h3>
+    <% else %>
       <li class="active logo"><a href="#about">About</a></li>
       <li class="active logo"><a href="#contact">Contact</a></li>
-    <% unless current_user %>
-    <% else %>
-      <li class="active logo"><a href="#update">Update Profile</a></li>
+      <li class="active logo"><a href="#index">View Profile</a></li>
+      <li class="active logo"><a href="#search">Search</a></li>
       <li class="active logo"><a href="/logout">Log Out</a></li>
     </ul>
-      <h4 class="greeting">Hello, <%= current_user.name %></h4>
+      <h4 class="greeting"><%= current_user.name %></h4>
+      <img class="header_picture" src="{{user.facebook_image}}"/>
     <% end %>
   </div>
 </nav>

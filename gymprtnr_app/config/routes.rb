@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "users", to: "users#index"
   patch "users", to: "users#update"
   get "user_info", to: "sessions#user_info"
+  get "sports", to: "sports#index"
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

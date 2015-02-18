@@ -1,0 +1,13 @@
+<img src="{{user.facebook_image}}"/>
+<h1>{{user.name}}</h1>
+<h3>Age: {{user.age}}</h3>
+<h3>City: {{user.city}}</h3>
+<h3>Zipcode: {{user.zipcode}}</h3>
+<h3>Bio: {{user.bio}}</h3>
+<form ng-submit="addSport()">
+  <input class="form-control" id="sport_info" type="text" ng-model="sport.name" placeholder="Add Sport"></h3>
+</form>
+<form ng-submit="addPhoto()">
+  <input class="form-control" id="user_photo" type="text" ng-model="user.photo" placeholder="Add Photo"></h3><br>
+</form>
+<a class="btn btn-default" href="#update" role="button">Update Profile</a>

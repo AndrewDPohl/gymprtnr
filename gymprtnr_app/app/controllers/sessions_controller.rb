@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def user_info
-    render json: current_user, only: [:id, :name, :age, :phone_number, :city, :zipcode, :bio]
+    render json: current_user, only: [:id, :name, :age, :phone_number, :city, :zipcode, :bio, :facebook_image]
   end 
 
 end
