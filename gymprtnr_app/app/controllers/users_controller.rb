@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
 
   def index
@@ -5,6 +6,8 @@ class UsersController < ApplicationController
       format.html
     end
   end
+
+
 
   def create
   end

@@ -1,0 +1,21 @@
+<!-- Loops through all of the users that are associated with the sport that was clicked
+     and returns this information -->
+<div ng-repeat="result in results track by $index">
+  <div class="container">
+    <div class="result_user">
+      <img class="profile_photo" src="{{result.facebook_image}}"/>
+      <h3>Name: {{result.name}}</h3>
+      <h4>Age: {{result.age}}</h4>
+      <h4>City: {{result.city}}</h4>
+      <h4>Zipcode: {{result.zipcode}}</h4>
+      <h4>Bio: {{result.bio}}</h4>
+      <h4>Contact<input class="checkbox" type="checkbox" ng-model="checked">
+      <div class="check-element animate-show" ng-show="checked">
+        <form ng-submit="contactUser()">
+          <textarea class="form-control" id="contact_user" type="text" ng-model="user.message" placeholder="Contact User"></textarea>
+          <button class="btn btn-default" id="button" type="submit">Contact</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

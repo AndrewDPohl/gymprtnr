@@ -33,31 +33,46 @@
         templateUrl: "sites/index.html",
         controller: "GymPrtnrsCtrl"
       }).
+      when("/search", {
+        templateUrl: "sites/search.html",
+        controller: "SportsCtrl"
+      }).
       when("/update", {
         templateUrl: "sites/update.html",
         controller: "GymPrtnrsCtrl"
       }).
-      when ("/about", {
+      when("/about", {
         templateUrl: "sites/about.html",
         controller: "GymPrtnrsCtrl"
       }).
-      when ("/contact", {
+      when("/contact", {
         templateUrl: "sites/contact.html",
         controller: "GymPrtnrsCtrl"
       }).
-      when ("/sports", {
-        templateUrl: "sites/search.html",
+      when("/sports", {
+        templateUrl: "sites/sports.html",
         controller: "SportsCtrl"
-      });
+      }).
+      when("/results/:id", {
+        templateUrl: "sites/results.html",
+        controller: "ResultsCtrl"
+      }).
+      otherwise("/index");
   }]);
 
- // GymPrtnrApp.factory("Sport", ["$http", function ($http) {
- //    return {
- //      info: function () {
- //        return $http.get("http://localhost:3000/sports.json");
- //      }
- //    }
- //  }]);
+  GymPrtnrApp.factory("Sport", ["$http", function ($http) {
+    return {
+      info: function () {
+        return $http.get('http://localhost:3000/sports.json');
+      },
+      getSimilar: function (sportId) {
+        return $http.get("/sports/" + sportId +"/users");
+      }
+      // add: function (sport) {
+      //   return $http.post("sports.json", {sport: sport});
+      // }
+    }
+  }]);
 
   GymPrtnrApp.factory("CurrentUser", ["$http", function ($http) {
     return {
@@ -66,6 +81,9 @@
       },
       update: function (user) {
         return $http.patch("users.json", {user: user});
+      },
+      addSport: function(sport) {
+        return $http.post("users_sports.json", {sport: sport});
       }
     }
   }]);
@@ -77,6 +95,7 @@
     CurrentUser.info()
       .success(function(user) {
         $scope.user = user;
+        console.log(user);
       });
     $scope.updateUser = function() {
      var user = $scope.user;
@@ -88,21 +107,48 @@
         $location.path("/")
       });
     };
+    $scope.addUsersSports = function(sport) {
+      var user = $scope.user;
+      console.log("Sport was: ", sport);
+      CurrentUser.addSport(sport).
+        success(function () {
+          $location.path("/sports");
+        });
+    };
   }]);
 
 
-  GymPrtnrApp.controller("SportsCtrl", function ($scope, $http) {
-    $http.get('http://localhost:3000/sports.json').then(function(resp) {
+  GymPrtnrApp.controller("SportsCtrl", ["$scope", "$http", "Sport", "$routeParams", "$location", function ($scope, $http, Sport, $routeParams, $location) {
+
+
+    Sport.info().then(function(resp) {
       console.log('Success', resp);
       $scope.sports = resp.data
     })
-    // $scope.sports = Sport.query();
-    // $scope.sports = [];
-    // console.log(sports);
-    // Sports.info()
-    // .success(function(sport) {
-    //   console.log(sport);
-    // });
-  });
+
+    $scope.sportSearch = function () {
+      $location.path("/results/"+ this.sport.id);
+    }
+
+
+  }]);
+
+  GymPrtnrApp.controller("ResultsCtrl", ["$scope", "$http", "Sport", "$routeParams", "$location", function ($scope, $http, Sport, $routeParams, $location) {
+
+    $scope.results = [];
+    console.log("ID", $routeParams.id)
+    Sport.getSimilar($routeParams.id).
+      success(function (users) {
+        $scope.results  = $scope.results.concat(users);
+      });
+
+    $scope.contactUser = function () {
+      var user_id = this.result.id;
+      $http.post("/users/:id/contact").
+        success(function (data) {
+          
+        });
+    }
+  }]);
 
 })();

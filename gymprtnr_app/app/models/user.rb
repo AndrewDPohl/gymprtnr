@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 
-  has_many :userssports
-  has_many :photos
+  has_many :users_sports
+  has_many :sports, through: :users_sports
+  has_many :contacts, foreign_key: "user_id", class_name: "Contact"
+  has_many :messages, :through => :contacts
 
   def self.from_omniauth(auth)
     where(uid: auth.uid).first_or_initialize.tap do |user|

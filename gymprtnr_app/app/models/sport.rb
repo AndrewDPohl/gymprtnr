@@ -1,3 +1,5 @@
 class Sport < ActiveRecord::Base
-  belongs_to :userssports
+  
+  has_many :users_sports
+  has_many :users, through: :users_sports
 end

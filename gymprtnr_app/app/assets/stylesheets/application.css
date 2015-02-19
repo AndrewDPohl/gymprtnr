@@ -14,14 +14,10 @@
  *= require_self
  *= require twitter/bootstrap
  */
- html {
-  height: 100%;
- }
 
- body {
-  height: 100%;
-  padding-bottom: 50px;
- }
+.main_content {
+  margin-bottom: 100px;
+}
 
 .logo {
   font-family: 'Montserrat Subrayada', sans-serif;
@@ -49,18 +45,13 @@ li {
 float: left;
 }
 
-.navbar-bottom {
-  height: 50px;
-  background-color: black;
-  position: relative;
-}
 
 .footer_note {
   float: right;
 }
 
 .footer_token  {
-  float:left;
+  float: left;
   height: 35px;
   width: 35px;
   margin-bottom: 15px;
@@ -79,4 +70,32 @@ float: left;
 
 .header_picture {
   float: right;
+}
+
+.sports_tag {
+  text-align: center;
+}
+
+.logo_search {
+  text-align: center;
+  font-family: 'Montserrat Subrayada', sans-serif; 
+}
+
+.sport_name {
+  float: left;
+  margin-right: 10px;
+}
+
+.result_user {
+  border: 2px solid black;
+  margin-bottom: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
 }

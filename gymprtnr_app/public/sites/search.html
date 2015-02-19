@@ -1,8 +1,14 @@
-<h1>Click on which activity you are looking for a GymPrtnr</h1>
-<div ng-controller="SportsCtrl">
+<!-- This will be used for searching for other users based on the current_user's users_sports
+     list -->
+<div class="container">
+  <div>
+    <h1 class="sports_tag">Search For A <h1 class="logo_search">GYMPRTNR</h1>
+  </div>
   <div ng-repeat="sport in sports">
-    <div>
-      {{sport.name}}
+    <div class="btn-group btn-group-justified" role="group">
+      <div class="btn-group" role="group">
+        <button class="btn btn-default" ng-click="sportSearch(sport)">{{sport.name}}</button>
+      </div>
     </div>
   </div>
 </div>

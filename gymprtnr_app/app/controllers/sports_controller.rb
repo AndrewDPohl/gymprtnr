@@ -7,19 +7,13 @@ class SportsController < ApplicationController
     end
   end
 
-  def create
-    sport_params = params.require(:sport).permit(:name)
-    @sport = Sport.new(sport_params)
-    if @sport.save
-      respond_to do |format|
-        format.json { render json: @sport, status: 201}
-      end
-    else
-      respond_to do |format|
-        format.json {render nothing: true, status: 422}
-      end
-    end
+  def search
+    sport = Sport.find(params[:id])
+    #user_data = User.joins(:sports).where({sports: {id: params[:id]}}).select('distinct users.*')
+    user_data = Sport.find(params[:id]).users().distinct
+    render json: user_data, only: [:id, :name, :city, :bio, :zipcode, :age, :facebook_image]
   end
+ 
 
   def update
   end
